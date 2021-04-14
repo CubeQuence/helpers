@@ -1,5 +1,5 @@
 {
-    "name": "cubequence/template",
+    "name": "cubequence/helpers",
     "description": "PACKAGE_DESCRIPTION",
     "keywords": [
         "PACKAGE_TAG",
@@ -13,7 +13,12 @@
         }
     ],
     "require": {
-        "php": ">=8.0.0"
+        "php": ">=8.0.0",
+        "cubequence/crypto": "^1.1",
+        "cubequence/request": "^1.0",
+        "laminas/laminas-diactoros": "^2.5",
+        "ramsey/uuid": "^4.1",
+        "vlucas/phpdotenv": "^5.3"
     },
     "require-dev": {
         "nunomaduro/phpinsights": "dev-master",
@@ -27,13 +32,13 @@
     },
     "autoload": {
         "psr-4": {
-            "CQ\\Template\\": "src/Template"
+            "CQ\\Helpers\\": "src/Helpers"
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "support": {
-        "issues": "https://github.com/CubeQuence/Template/issues",
-        "source": "https://github.com/CubeQuence/Template"
+        "issues": "https://github.com/CubeQuence/template/issues",
+        "source": "https://github.com/CubeQuence/template"
     }
 }
