@@ -1,8 +1,8 @@
 {
     "name": "cubequence/helpers",
-    "description": "PACKAGE_DESCRIPTION",
+    "description": "Helpers for CubeQuence",
     "keywords": [
-        "PACKAGE_TAG",
+        "helpers",
         "cubequence"
     ],
     "license": "MIT",
@@ -38,7 +38,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "support": {
-        "issues": "https://github.com/CubeQuence/template/issues",
-        "source": "https://github.com/CubeQuence/template"
+        "issues": "https://github.com/CubeQuence/helpers/issues",
+        "source": "https://github.com/CubeQuence/helpers"
     }
 }

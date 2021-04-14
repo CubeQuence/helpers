@@ -8,9 +8,9 @@ use CQ\Helpers\AppHelper;
 use CQ\Helpers\ArrHelper;
 use Dotenv\Dotenv;
 
-final class Config
+final class ConfigHelper
 {
-    private static Config | null $instance = null;
+    private static ConfigHelper | null $instance = null;
     private static array $config = [];
 
     /**
@@ -28,18 +28,18 @@ final class Config
         $dotenv->load();
 
         // Get all config files
-        $config_files = scandir( // TODO: use cubequence/files
+        $configFiles = scandir( // TODO: use cubequence/files
             directory: $configDir
         );
 
         unset($config_files[0]); // Removes . entry
         unset($config_files[1]); // Removes .. entry
 
-        foreach ($config_files as $config_file) {
+        foreach ($configFiles as $configFile) {
             $name = str_replace(
                 search: '.php',
                 replace: '',
-                subject: $config_file
+                subject: $configFile
             );
 
             $configData = require "{$configDir}/{$name}.php";
@@ -51,7 +51,7 @@ final class Config
     /**
      * Get access to the Config singleton
      */
-    private static function getInstance(): Config
+    private static function getInstance(): ConfigHelper
     {
         if (self::$instance === null) {
             self::$instance = new self;

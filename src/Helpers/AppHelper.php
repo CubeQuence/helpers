@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CQ\Helpers;
 
-use CQ\Helpers\Config;
+use CQ\Helpers\ConfigHelper;
 use CQ\Crypto\Models\SymmetricKey;
 use CQ\Crypto\Symmetric;
 
@@ -12,7 +12,7 @@ class AppHelper
 {
     public static function getEnvoironment()
     {
-        return Config::get(
+        return ConfigHelper::get(
             key: 'app.env',
             fallback: 'production'
         );
@@ -33,7 +33,7 @@ class AppHelper
             return false;
         }
 
-        return Config::get(
+        return ConfigHelper::get(
             key: 'app.debug',
             fallback: false
         );
@@ -61,7 +61,7 @@ class AppHelper
     public static function encrypt(string $string): string
     {
         $appKey = new SymmetricKey(
-            encodedKey: Config::get('app.key')
+            encodedKey: ConfigHelper::get('app.key')
         );
 
         $symmetric = new Symmetric(
@@ -77,7 +77,7 @@ class AppHelper
     public static function decrypt(string $encryptedString): string
     {
         $appKey = new SymmetricKey(
-            encodedKey: Config::get('app.key')
+            encodedKey: ConfigHelper::get('app.key')
         );
 
         $symmetric = new Symmetric(

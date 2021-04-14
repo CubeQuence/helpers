@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CQ\Helpers;
 
-use CQ\Helpers\Config;
+use CQ\Helpers\ConfigHelper;
 
 final class AuthHelper // TODO: move authlogic to seperate folder
 {
@@ -19,11 +19,11 @@ final class AuthHelper // TODO: move authlogic to seperate folder
             return false;
         }
 
-        if (time() - SessionHelper::get(name: 'last_activity') > Config::get(key: 'auth.session_timeout')) {
+        if (time() - SessionHelper::get(name: 'last_activity') > ConfigHelper::get(key: 'auth.session_timeout')) {
             return false;
         }
 
-        if (time() - $session['created_at'] > Config::get(key: 'auth.session_lifetime')) {
+        if (time() - $session['created_at'] > ConfigHelper::get(key: 'auth.session_lifetime')) {
             return false;
         }
 
@@ -31,7 +31,7 @@ final class AuthHelper // TODO: move authlogic to seperate folder
             return false;
         }
 
-        if ($session['ip'] !== Request::ip() && Config::get(key: 'auth.ip_check')) { // TODO: fix
+        if ($session['ip'] !== Request::ip() && ConfigHelper::get(key: 'auth.ip_check')) { // TODO: fix
             return false;
         }
 
