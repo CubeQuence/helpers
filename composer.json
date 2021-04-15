@@ -15,6 +15,7 @@
     "require": {
         "php": ">=8.0.0",
         "cubequence/crypto": "^1.1",
+        "cubequence/oauth": "^1.1",
         "cubequence/request": "^1.0",
         "laminas/laminas-diactoros": "^2.5",
         "ramsey/uuid": "^4.1",

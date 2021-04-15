@@ -4,42 +4,47 @@ declare(strict_types=1);
 
 namespace CQ\Helpers;
 
-use CQ\Helpers\ConfigHelper;
+use CQ\Helpers\Models\SessionModel;
+use CQ\Helpers\SessionHelper;
+use CQ\OAuth\Models\UserModel;
 
-final class AuthHelper // TODO: move authlogic to seperate folder
+final class AuthHelper
 {
-    /**
-     * Check if session active.
-     */
-    public static function valid(): bool
+    private static function getSession(): SessionModel
     {
-        $session = SessionHelper::get(name: 'session');
+        return SessionHelper::get(name: 'session');
+    }
 
-        if (!SessionHelper::get(name: 'user')) {
-            return false;
-        }
+    public static function login(UserModel $user): string
+    {
+        $returnTo = SessionHelper::get(name: 'return_to');
 
-        if (time() - SessionHelper::get(name: 'last_activity') > ConfigHelper::get(key: 'auth.session_timeout')) {
-            return false;
-        }
-
-        if (time() - $session['created_at'] > ConfigHelper::get(key: 'auth.session_lifetime')) {
-            return false;
-        }
-
-        if (time() > $session['expires_at']) {
-            return false;
-        }
-
-        if ($session['ip'] !== Request::ip() && ConfigHelper::get(key: 'auth.ip_check')) { // TODO: fix
-            return false;
-        }
-
-        SessionHelper::set(
-            name: 'last_activity',
-            data: time()
+        // Create session
+        $session = new SessionModel(
+            expiresAt: ConfigHelper::get(key: 'auth.session_timeout'),
+            inactivityTimeout: ConfigHelper::get(key: 'auth.session_lifetime')
         );
 
-        return true;
+        // Session info
+        SessionHelper::set(
+            name: 'session',
+            data: $session
+        );
+
+        // User info
+        SessionHelper::set(
+            name: 'user',
+            data: $user
+        );
+
+        // If returnTo set, redirect to there otherwise to '/dashboard'
+        return $returnTo ?: '/dashboard';
+    }
+
+    public static function isValid(): bool
+    {
+        $session = self::getSession();
+
+        return $session->isValid();
     }
 }

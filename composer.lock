@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbcf2ef1d0f410b85c8c6c6e2f2747b4",
+    "content-hash": "082329cf2e3fa122e4b27def4d67b676",
     "packages": [
         {
             "name": "brick/math",
@@ -110,6 +110,55 @@
                 "source": "https://github.com/CubeQuence/crypto"
             },
             "time": "2021-04-09T19:02:16+00:00"
+        },
+        {
+            "name": "cubequence/oauth",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CubeQuence/oauth.git",
+                "reference": "0a20ad868d596645616e507ac4ee171cd1135f1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CubeQuence/oauth/zipball/0a20ad868d596645616e507ac4ee171cd1135f1a",
+                "reference": "0a20ad868d596645616e507ac4ee171cd1135f1a",
+                "shasum": ""
+            },
+            "require": {
+                "cubequence/request": "^1.0",
+                "php": ">=8.0.0"
+            },
+            "require-dev": {
+                "nunomaduro/phpinsights": "dev-master",
+                "pestphp/pest": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CQ\\OAuth\\": "src/OAuth"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luca Castelnuovo",
+                    "email": "luca@castelnuovo.xyz"
+                }
+            ],
+            "description": "PHP FusionAuth client made for CubeQuence",
+            "keywords": [
+                "cubequence",
+                "oauth"
+            ],
+            "support": {
+                "issues": "https://github.com/CubeQuence/oauth/issues",
+                "source": "https://github.com/CubeQuence/oauth"
+            },
+            "time": "2021-04-14T22:00:54+00:00"
         },
         {
             "name": "cubequence/request",
@@ -863,16 +912,16 @@
         },
         {
             "name": "paragonie/sodium_compat",
-            "version": "v1.15.2",
+            "version": "v1.15.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/sodium_compat.git",
-                "reference": "efcecfbceac1bf014b1ede38f4588931fef92586"
+                "reference": "69ac8357b0b5916e997226143a401ce2c09f5585"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/sodium_compat/zipball/efcecfbceac1bf014b1ede38f4588931fef92586",
-                "reference": "efcecfbceac1bf014b1ede38f4588931fef92586",
+                "url": "https://api.github.com/repos/paragonie/sodium_compat/zipball/69ac8357b0b5916e997226143a401ce2c09f5585",
+                "reference": "69ac8357b0b5916e997226143a401ce2c09f5585",
                 "shasum": ""
             },
             "require": {
@@ -943,9 +992,9 @@
             ],
             "support": {
                 "issues": "https://github.com/paragonie/sodium_compat/issues",
-                "source": "https://github.com/paragonie/sodium_compat/tree/v1.15.2"
+                "source": "https://github.com/paragonie/sodium_compat/tree/v1.15.3"
             },
-            "time": "2021-04-14T06:07:47+00:00"
+            "time": "2021-04-14T21:40:16+00:00"
         },
         {
             "name": "phpoption/phpoption",

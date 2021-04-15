@@ -33,9 +33,9 @@ final class SessionHelper
     }
 
     /**
-     * Destroy and restart session.
+     * Destroy and reset session.
      */
-    public static function destroy(): void
+    public static function reset(): void
     {
         session_destroy();
         session_start();
