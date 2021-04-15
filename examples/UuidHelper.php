@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use CQ\Helpers\UuidHelper;
 
 echo json_encode([

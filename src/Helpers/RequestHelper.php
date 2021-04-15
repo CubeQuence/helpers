@@ -61,7 +61,7 @@ final class RequestHelper
         $remoteIp = $_SERVER['REMOTE_ADDR'];
         $proxyIp = $this->getHeader('X-Forwarded-For');
 
-        if (!$proxyIp) {
+        if (! $proxyIp) {
             return $remoteIp;
         }
 

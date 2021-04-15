@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace CQ\Helpers;
 
-use CQ\Helpers\AppHelper;
-use CQ\Helpers\ArrHelper;
 use Dotenv\Dotenv;
 
 final class ConfigHelper
@@ -49,18 +47,6 @@ final class ConfigHelper
     }
 
     /**
-     * Get access to the Config singleton
-     */
-    private static function getInstance(): ConfigHelper
-    {
-        if (self::$instance === null) {
-            self::$instance = new self;
-        }
-
-        return self::$instance;
-    }
-
-    /**
      * Get config entry.
      */
     public static function get(string $key, $fallback = null): mixed
@@ -80,5 +66,17 @@ final class ConfigHelper
         }
 
         return $value;
+    }
+
+    /**
+     * Get access to the Config singleton
+     */
+    private static function getInstance(): ConfigHelper
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
     }
 }

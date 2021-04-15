@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace CQ\Helpers;
 
-use CQ\Helpers\ConfigHelper;
 use CQ\Crypto\Models\SymmetricKey;
 use CQ\Crypto\Symmetric;
 

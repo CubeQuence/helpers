@@ -5,15 +5,10 @@ declare(strict_types=1);
 namespace CQ\Helpers;
 
 use CQ\Helpers\Models\SessionModel;
-use CQ\Helpers\SessionHelper;
 use CQ\OAuth\Models\UserModel;
 
 final class AuthHelper
 {
-    private static function getSession(): SessionModel
-    {
-        return SessionHelper::get(name: 'session');
-    }
 
     public static function login(UserModel $user): string
     {
@@ -38,7 +33,7 @@ final class AuthHelper
         );
 
         // If returnTo set, redirect to there otherwise to '/dashboard'
-        return $returnTo ?: '/dashboard';
+        return $returnTo ? $returnTo : '/dashboard';
     }
 
     public static function isValid(): bool
@@ -46,5 +41,10 @@ final class AuthHelper
         $session = self::getSession();
 
         return $session->isValid();
+    }
+
+    private static function getSession(): SessionModel
+    {
+        return SessionHelper::get(name: 'session');
     }
 }
