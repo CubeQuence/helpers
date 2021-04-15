@@ -9,7 +9,6 @@ use CQ\OAuth\Models\UserModel;
 
 final class AuthHelper
 {
-
     public static function login(UserModel $user): string
     {
         $returnTo = SessionHelper::get(name: 'return_to');
