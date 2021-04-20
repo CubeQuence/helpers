@@ -49,6 +49,11 @@ final class AuthHelper
 
     public static function getSession(): SessionModel
     {
-        return SessionHelper::get(name: 'session');
+        $invalidSession = new SessionModel(
+            expiresAt: 0,
+            inactivityTimeout: 0
+        );
+
+        return SessionHelper::get(name: 'session') ?: $invalidSession;
     }
 }
