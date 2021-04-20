@@ -23,12 +23,16 @@ final class SessionModel
     {
         $currentTime = time();
 
-        if ($this->inactivityTimeout && $currentTime - $this->updatedAt > $this->inactivityTimeout) {
-            return false;
+        if ($this->inactivityTimeout !== null) {
+            if ($currentTime - $this->updatedAt > $this->inactivityTimeout) {
+                return false;
+            }
         }
 
-        if ($this->expiresAt && $this->expiresAt < $currentTime) {
-            return false;
+        if ($this->expiresAt !== null) {
+            if ($this->expiresAt < $currentTime) {
+                return false;
+            }
         }
 
         // Restart inactivity timeout
