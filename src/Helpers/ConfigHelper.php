@@ -30,8 +30,8 @@ final class ConfigHelper
             directory: $configDir
         );
 
-        unset($config_files[0]); // Removes . entry
-        unset($config_files[1]); // Removes .. entry
+        unset($configFiles[0]); // Removes . entry
+        unset($configFiles[1]); // Removes .. entry
 
         foreach ($configFiles as $configFile) {
             $name = str_replace(
