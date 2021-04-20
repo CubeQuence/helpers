@@ -8,29 +8,6 @@ use CQ\Request\Request;
 
 final class CaptchaHelper
 {
-    /**
-     * Validate captcha.
-     */
-    private static function validate(
-        string $url,
-        string $secret,
-        string $response
-    ): bool {
-        try {
-            $response = Request::send(
-                method: 'POST',
-                path: $url,
-                form: [
-                    'secret' => $secret,
-                    'response' => $response,
-                ]
-            );
-        } catch (\Throwable) {
-            return false;
-        }
-
-        return $response?->success ? true : false;
-    }
 
     /**
      * Validate hCaptchaV1.
@@ -54,5 +31,28 @@ final class CaptchaHelper
             secret: $secret,
             response: $response
         );
+    }
+    /**
+     * Validate captcha.
+     */
+    private static function validate(
+        string $url,
+        string $secret,
+        string $response
+    ): bool {
+        try {
+            $response = Request::send(
+                method: 'POST',
+                path: $url,
+                form: [
+                    'secret' => $secret,
+                    'response' => $response,
+                ]
+            );
+        } catch (\Throwable) {
+            return false;
+        }
+
+        return $response?->success ? true : false;
     }
 }

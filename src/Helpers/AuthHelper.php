@@ -42,6 +42,11 @@ final class AuthHelper
         return $session->isValid();
     }
 
+    public static function getUser(): UserModel
+    {
+        return SessionHelper::get(name: 'user');
+    }
+
     private static function getSession(): SessionModel
     {
         return SessionHelper::get(name: 'session');
