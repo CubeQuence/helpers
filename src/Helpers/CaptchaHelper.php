@@ -8,7 +8,6 @@ use CQ\Request\Request;
 
 final class CaptchaHelper
 {
-
     /**
      * Validate hCaptchaV1.
      */
