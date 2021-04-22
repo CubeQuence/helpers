@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace CQ\Helpers\Models;
 
-use CQ\Helpers\SessionHelper;
-
 final class SessionModel
 {
     private int $updatedAt;
@@ -14,8 +12,6 @@ final class SessionModel
         private int $expiresAt = 0,
         private int $inactivityTimeout = 0
     ) {
-        SessionHelper::reset();
-
         $this->updatedAt = time();
     }
 

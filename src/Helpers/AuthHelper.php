@@ -13,6 +13,9 @@ final class AuthHelper
     {
         $returnTo = SessionHelper::get(name: 'return_to');
 
+        // Reset Session
+        SessionHelper::reset();
+
         // Create session
         $session = new SessionModel(
             expiresAt: ConfigHelper::get(key: 'auth.session_timeout'),
