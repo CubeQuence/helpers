@@ -18,8 +18,8 @@ final class AuthHelper
 
         // Create session
         $session = new SessionModel(
-            expiresAt: ConfigHelper::get(key: 'auth.session_timeout'),
-            inactivityTimeout: ConfigHelper::get(key: 'auth.session_lifetime')
+            expiresAt: time() + ConfigHelper::get(key: 'auth.session_lifetime'),
+            inactivityTimeout: ConfigHelper::get(key: 'auth.session_timeout')
         );
 
         // Session info
