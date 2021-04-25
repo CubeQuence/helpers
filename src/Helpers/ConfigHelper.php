@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace CQ\Helpers;
 
+use CQ\File\Adapters\Providers\Local;
+use CQ\File\Folder;
 use Dotenv\Dotenv;
 
 final class ConfigHelper
@@ -17,32 +19,33 @@ final class ConfigHelper
     private function __construct()
     {
         $appRootPath = AppHelper::getRootPath();
-        $configDir = $appRootPath . '/config';
+        $configDir = '/config';
+
+        $localAdapter = new Local(
+            rootPath: $appRootPath
+        );
+
+        $folderHandler = new Folder(
+            adapterProvider: $localAdapter
+        );
 
         // Load .env
         $dotenv = Dotenv::createImmutable(
-            paths: $appRootPath . '/'
+            paths: $appRootPath
         );
         $dotenv->load();
 
         // Get all config files
-        $configFiles = scandir( // TODO: use cubequence/files
-            directory: $configDir
+        $configFiles = $folderHandler->listContents(
+            path: $configDir
         );
 
-        unset($configFiles[0]); // Removes . entry
-        unset($configFiles[1]); // Removes .. entry
-
+        // Require config files
         foreach ($configFiles as $configFile) {
-            $name = str_replace(
-                search: '.php',
-                replace: '',
-                subject: $configFile
-            );
+            $pathInfo = pathinfo($configFile);
+            $configData = require "{$appRootPath}/{$configFile}";
 
-            $configData = require "{$configDir}/{$name}.php";
-
-            self::$config[$name] = $configData;
+            self::$config[$pathInfo['filename']] = $configData;
         }
     }
 
