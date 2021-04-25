@@ -38,6 +38,19 @@ final class AuthHelper
         return $returnTo ? $returnTo : '/dashboard';
     }
 
+    public static function logout(): void
+    {
+        $invalidSession = new SessionModel(
+            expiresAt: 0,
+            inactivityTimeout: 0
+        );
+
+        SessionHelper::set(
+            name: 'session',
+            data: $invalidSession
+        );
+    }
+
     public static function isValid(): bool
     {
         $session = self::getSession();
