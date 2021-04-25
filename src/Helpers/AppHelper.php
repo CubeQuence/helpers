@@ -45,13 +45,20 @@ class AppHelper
     {
         [$path] = get_included_files();
 
-        $path = dirname(path: $path);
+        $publicPath = dirname(path: $path);
+
+        $path = str_replace(
+            search: '/public', // Remove on unix
+            replace: '',
+            subject: $publicPath
+        );
 
         return str_replace(
-            search: '/public',
+            search: '\public', // Remove on windows
             replace: '',
             subject: $path
         );
+    
     }
 
     /**
