@@ -20,10 +20,10 @@ final class RequestHelper
         '197.234.240.0/22',
         '198.41.128.0/17',
         '162.158.0.0/15',
-        '172.64.0.0/13',
-        '131.0.72.0/22',
         '104.16.0.0/13',
         '104.24.0.0/14',
+        '172.64.0.0/13',
+        '131.0.72.0/22',
     ];
 
     public function __construct(
@@ -34,6 +34,17 @@ final class RequestHelper
     public function getHeader(string $headerName): string
     {
         return $this->request->getHeaderLine($headerName);
+    }
+
+    public function getAuthorization(): string
+    {
+        $authorizationHeader = $this->getHeader('authorization');
+
+        return str_replace(
+            search: 'Bearer ',
+            replace: '',
+            subject: $authorizationHeader
+        );
     }
 
     public function getQueryParam(string $paramName): string | null
