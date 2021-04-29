@@ -7,9 +7,9 @@ namespace CQ\Helpers;
 use CQ\Crypto\Models\SymmetricKey;
 use CQ\Crypto\Symmetric;
 
-class AppHelper
+final class AppHelper
 {
-    public static function getEnvoironment()
+    public static function getEnvoironment(): string
     {
         return ConfigHelper::get(
             key: 'app.env',
@@ -17,7 +17,7 @@ class AppHelper
         );
     }
 
-    public static function isEnvironment(string $check)
+    public static function isEnvironment(string $check): bool
     {
         return self::getEnvoironment() === $check;
     }
@@ -58,7 +58,6 @@ class AppHelper
             replace: '',
             subject: $path
         );
-    
     }
 
     /**
