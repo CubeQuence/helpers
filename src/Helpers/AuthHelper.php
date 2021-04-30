@@ -11,7 +11,7 @@ final class AuthHelper
 {
     public static function login(UserModel $user): string
     {
-        $returnTo = SessionHelper::get(name: 'return_to');
+        $returnTo = SessionHelper::get(name: 'cq_return_to');
 
         // Reset Session
         SessionHelper::reset();
@@ -24,13 +24,13 @@ final class AuthHelper
 
         // Session info
         SessionHelper::set(
-            name: 'session',
+            name: 'cq_session',
             data: $session
         );
 
         // User info
         SessionHelper::set(
-            name: 'user',
+            name: 'cq_user',
             data: $user
         );
 
@@ -46,7 +46,7 @@ final class AuthHelper
         );
 
         SessionHelper::set(
-            name: 'session',
+            name: 'cq_session',
             data: $invalidSession
         );
     }
@@ -60,7 +60,7 @@ final class AuthHelper
 
     public static function getUser(): UserModel
     {
-        return SessionHelper::get(name: 'user');
+        return SessionHelper::get(name: 'cq_user');
     }
 
     public static function getSession(): SessionModel
@@ -70,6 +70,6 @@ final class AuthHelper
             inactivityTimeout: 0
         );
 
-        return SessionHelper::get(name: 'session') ?: $invalidSession;
+        return SessionHelper::get(name: 'cq_session') ?: $invalidSession;
     }
 }

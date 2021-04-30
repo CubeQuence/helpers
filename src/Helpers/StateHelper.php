@@ -16,7 +16,7 @@ final class StateHelper
         $state = $custom ? $custom : Random::string();
 
         return SessionHelper::set(
-            name: 'state',
+            name: 'cq_state',
             data: $state
         );
     }
@@ -28,13 +28,13 @@ final class StateHelper
         string $provided_state,
         bool $unset_state = true
     ): bool {
-        $known_state = SessionHelper::get(name: 'state');
+        $known_state = SessionHelper::get(name: 'cq_state');
 
         if ($unset_state) {
-            SessionHelper::unset(name: 'state');
+            SessionHelper::unset(name: 'cq_state');
         }
 
-        if (! $provided_state) {
+        if (!$provided_state) {
             return false;
         }
 
