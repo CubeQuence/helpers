@@ -154,16 +154,16 @@
         },
         {
             "name": "cubequence/crypto",
-            "version": "v1.1",
+            "version": "v1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CubeQuence/crypto.git",
-                "reference": "f63f9a804b2afb4dd3b8bbe62bbf4f0c9061facb"
+                "reference": "bba6b88cfc92ff8b7b17a2cc1b0017a1fd3778ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CubeQuence/crypto/zipball/f63f9a804b2afb4dd3b8bbe62bbf4f0c9061facb",
-                "reference": "f63f9a804b2afb4dd3b8bbe62bbf4f0c9061facb",
+                "url": "https://api.github.com/repos/CubeQuence/crypto/zipball/bba6b88cfc92ff8b7b17a2cc1b0017a1fd3778ed",
+                "reference": "bba6b88cfc92ff8b7b17a2cc1b0017a1fd3778ed",
                 "shasum": ""
             },
             "require": {
@@ -199,7 +199,7 @@
                 "issues": "https://github.com/CubeQuence/crypto/issues",
                 "source": "https://github.com/CubeQuence/crypto"
             },
-            "time": "2021-04-09T19:02:16+00:00"
+            "time": "2021-04-29T16:53:13+00:00"
         },
         {
             "name": "cubequence/file",
