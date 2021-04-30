@@ -13,31 +13,29 @@ final class StateHelper
      */
     public static function set(string $custom = ''): string
     {
-        $state = $custom ? $custom : Random::string();
-
         return SessionHelper::set(
             name: 'cq_state',
-            data: $state
+            data: $custom ?: Random::string()
         );
     }
 
     /**
-     * Validate $provided_state.
+     * Validate provided state.
      */
-    public static function valid(
-        string $provided_state,
-        bool $unset_state = true
+    public static function isValid(
+        string $providedState,
+        bool $unsetState = true
     ): bool {
-        $known_state = SessionHelper::get(name: 'cq_state');
+        $sessionState = SessionHelper::get(name: 'cq_state');
 
-        if ($unset_state) {
+        if ($unsetState) {
             SessionHelper::unset(name: 'cq_state');
         }
 
-        if (!$provided_state) {
+        if (!$providedState) {
             return false;
         }
 
-        return $provided_state === $known_state;
+        return $providedState === $sessionState;
     }
 }
