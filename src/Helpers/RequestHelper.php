@@ -59,7 +59,16 @@ final class RequestHelper
 
     public function isForm(): bool
     {
-        return $this->getHeader('Content-Type') === 'application/x-www-form-urlencoded';
+        $allowedTypes = [
+            'multipart/form-data',
+            'application/x-www-form-urlencoded'
+        ];
+
+        return in_array(
+            needle: $this->getHeader('Content-Type'),
+            haystack: $allowedTypes,
+            strict: true
+        );
     }
 
     /**
@@ -72,7 +81,7 @@ final class RequestHelper
         $remoteIp = $_SERVER['REMOTE_ADDR'];
         $proxyIp = $this->getHeader('X-Forwarded-For');
 
-        if (! $proxyIp) {
+        if (!$proxyIp) {
             return $remoteIp;
         }
 
