@@ -59,16 +59,23 @@ final class RequestHelper
 
     public function isForm(): bool
     {
-        $allowedTypes = [
-            'multipart/form-data',
-            'application/x-www-form-urlencoded'
-        ];
+        $contentType = $this->getHeader('Content-Type');
 
-        return in_array(
-            needle: $this->getHeader('Content-Type'),
-            haystack: $allowedTypes,
-            strict: true
-        );
+        if (str_contains(
+            haystack: $contentType,
+            needle: 'multipart/form-data'
+        )) {
+            return true;
+        }
+
+        if (str_contains(
+            haystack: $contentType,
+            needle: 'application/x-www-form-urlencoded'
+        )) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
