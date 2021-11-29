@@ -814,16 +814,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "2.0.5",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "27ea64cc9d61ae7b6a5f04bebf062d89dd18e8f7"
+                "reference": "4b6da3e75b5e8eee53bb5ee46ded15a532843f80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/27ea64cc9d61ae7b6a5f04bebf062d89dd18e8f7",
-                "reference": "27ea64cc9d61ae7b6a5f04bebf062d89dd18e8f7",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4b6da3e75b5e8eee53bb5ee46ded15a532843f80",
+                "reference": "4b6da3e75b5e8eee53bb5ee46ded15a532843f80",
                 "shasum": ""
             },
             "require": {
@@ -840,11 +840,12 @@
                 "aws/aws-sdk-php": "^3.132.4",
                 "composer/semver": "^3.0",
                 "ext-fileinfo": "*",
-                "friendsofphp/php-cs-fixer": "^2.16",
+                "friendsofphp/php-cs-fixer": "^3.2",
                 "google/cloud-storage": "^1.23",
                 "phpseclib/phpseclib": "^2.0",
                 "phpstan/phpstan": "^0.12.26",
-                "phpunit/phpunit": "^8.5 || ^9.4"
+                "phpunit/phpunit": "^8.5 || ^9.4",
+                "sabre/dav": "^4.1"
             },
             "type": "library",
             "autoload": {
@@ -878,7 +879,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/2.0.5"
+                "source": "https://github.com/thephpleague/flysystem/tree/2.3.2"
             },
             "funding": [
                 {
@@ -894,7 +895,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-11T15:03:35+00:00"
+            "time": "2021-11-28T20:19:08+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -953,16 +954,16 @@
         },
         {
             "name": "league/mime-type-detection",
-            "version": "1.7.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/mime-type-detection.git",
-                "reference": "3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3"
+                "reference": "aa70e813a6ad3d1558fc927863d47309b4c23e69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3",
-                "reference": "3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3",
+                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/aa70e813a6ad3d1558fc927863d47309b4c23e69",
+                "reference": "aa70e813a6ad3d1558fc927863d47309b4c23e69",
                 "shasum": ""
             },
             "require": {
@@ -970,7 +971,7 @@
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.18",
+                "friendsofphp/php-cs-fixer": "^3.2",
                 "phpstan/phpstan": "^0.12.68",
                 "phpunit/phpunit": "^8.5.8 || ^9.3"
             },
@@ -993,7 +994,7 @@
             "description": "Mime-type detection for Flysystem",
             "support": {
                 "issues": "https://github.com/thephpleague/mime-type-detection/issues",
-                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.7.0"
+                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.9.0"
             },
             "funding": [
                 {
@@ -1005,7 +1006,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-18T20:58:21+00:00"
+            "time": "2021-11-21T11:48:40+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -8365,5 +8366,5 @@
         "php": ">=8.0.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
